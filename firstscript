@@ -1,0 +1,62 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Quaqum2284", "GrapeTheme")
+
+-- Main scripts NTSEC| 1 Section, 4 functions(4B)
+local Main = Window:NewTab("Основное")
+local MainSection = Main:NewSection("Предметы")
+
+--b1.1
+MainSection:NewButton("Витамины. (Пока не рабочие)", "Чуть-позже разберусь.", function()
+local Item = game:GetObjects("rbxassetid://12779695113")[1]
+Item.Parent = game.Players.LocalPlayer.Backpack
+end)
+--b2.1
+MainSection:NewButton("Кувырочки (управление в описании)", "Z-кувю вперед, X-кув. назад, C-прыжок без КД", function()
+    loadstring(game:HttpGet('https://pastebin.com/raw/7wDcPtLk'))()
+end)
+--t b3.1
+MainSection:NewToggle("Супер челик", "Скорость+прыжок на 120.", function(state)
+    if state then
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 120
+        game.Players.LocalPlayer.Character.Humanoid.JumpPower = 120
+    else
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+        game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50
+    end
+end)
+--b4.1
+MainSection:NewButton("Консоль админа", "Комманды админа", function()
+    loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'),true))()
+end)
+
+
+--Local Player Scripts NTSEC| 1 Section, 3 functions(2S+1B)
+local Player = Window:NewTab("Игрок")
+local PlayerSection = Player:NewSection("Конфигурация")
+
+--S1.2
+PlayerSection:NewSlider("Врум-врум","В столб не врежься", 100, 16, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+--S2.2
+PlayerSection:NewSlider("Прыг-скок","Не улети", 250, 50, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.jumpPower = s
+end)
+--B1.2
+PlayerSection:NewButton("Возобновить скорость и прыжок", "Если ноги устали", function()
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+    game.Players.LocalPlayer.Character.Humanoid.jumpPower = 50
+end)
+
+
+--Other NTSEC
+local Other = Window:NewTab("Разное")
+local OtherSection = Player:NewSection("Разное")
+--B1.3
+OtherSection:NewButton("Троллинг в чате", "Довольно весело :)", function()
+    loadstring(game:HttpGet(('https://pastebin.com/raw/djBfk8Li'),true))()
+end)
+--B2.3
+OtherSection:NewButton("Режим птицы", "квакум петух", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Nicuse/RobloxScripts/main/BypassedFly.lua"))()
+end)
