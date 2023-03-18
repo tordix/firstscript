@@ -11,7 +11,7 @@ local Item = game:GetObjects("rbxassetid://12779695113")[1]
 Item.Parent = game.Players.LocalPlayer.Backpack
 end)
 --b2.1
-MainSection:NewButton("Кувырочки (управление в описании)", "Z-кувю вперед, X-кув. назад, C-прыжок без КД", function()
+MainSection:NewButton("Кувырочки (управление в описании)", "Z-кув. вперед, X-кув. назад, C-прыжок без КД", function()
     loadstring(game:HttpGet('https://pastebin.com/raw/7wDcPtLk'))()
 end)
 --t b3.1
@@ -30,16 +30,16 @@ MainSection:NewButton("Консоль админа", "Комманды адми�
 end)
 
 
---Local Player Scripts NTSEC| 1 Section, 3 functions(2S+1B)
+--Local Player Scripts NTSEC| 2 Sections, 3 functions(4S+1B) 
 local Player = Window:NewTab("Игрок")
 local PlayerSection = Player:NewSection("Конфигурация")
 
 --S1.2
-PlayerSection:NewSlider("Врум-врум","В столб не врежься", 100, 16, function(s) -- 500 (MaxValue) | 0 (MinValue)
+PlayerSection:NewSlider("Скорость","В столб не врежься", 100, 16, function(s) -- 500 (MaxValue) | 0 (MinValue)
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
 end)
 --S2.2
-PlayerSection:NewSlider("Прыг-скок","Не улети", 250, 50, function(s) -- 500 (MaxValue) | 0 (MinValue)
+PlayerSection:NewSlider("Прыжок","Не улети", 250, 50, function(s) -- 500 (MaxValue) | 0 (MinValue)
     game.Players.LocalPlayer.Character.Humanoid.jumpPower = s
 end)
 --B1.2
@@ -48,15 +48,30 @@ PlayerSection:NewButton("Возобновить скорость и прыжок
     game.Players.LocalPlayer.Character.Humanoid.jumpPower = 50
 end)
 
+--NSEC | 2 Sliders
+local PlayerSection = Player:NewSection("Скорость без ограничения")
+
+--S3.2
+PlayerSection:NewSlider("Скоротсь","Не выпади", 500, 5, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+--S4.2
+PlayerSection:NewSlider("Прыжок","Останься живым", 500, 5, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.jumpPower = s
+end)
+
+
 
 --Other NTSEC
 local Other = Window:NewTab("Разное")
 local OtherSection = Other:NewSection("Разное")
 --B1.3
-OtherSection:NewButton("Троллинг в чате", "Довольно весело :)", function()
+OtherSection:NewButton("Троллинг в чате", "От другого лица типо писать", function()
     loadstring(game:HttpGet(('https://pastebin.com/raw/djBfk8Li'),true))()
 end)
 --B2.3
-OtherSection:NewButton("Режим птицы", "квакум петух", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/Nicuse/RobloxScripts/main/BypassedFly.lua"))()
+OtherSection:NewButton("Режим птицы", "квакум уже давно птичка (петух)", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Nicuse/RobloxScripts/main/BypassedFly.lua"))() 
+
+    Fly(true)
 end)
